@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { Button, StyleSheet, TextInput, Text, View, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
 import PrimaryModal from './src/components/PrimaryModal';
+import PatientTextInput from './src/components/PatientTextInput';
+import PatientList from './src/components/PatientList';
 
 
 export default function App() {
@@ -42,28 +45,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
-      <View style={ styles.inputContainer }>
-        <TextInput 
-          style={ styles.input }
-          placeholder='Nombre del paciente'
-          placeholderTextColor={ 'grey' }
-          value={ textValue }
-          onChangeText={ onHandleChangeItem }
+      
+      <PatientTextInput 
+        addItem={ addItem } 
+        onHandleChangeItem={ onHandleChangeItem }
+        textValue={ textValue } 
         />
-        <Button 
-          title='ADD'
-          onPress={ addItem }
-        />
-      </View>
 
-      <View style={ styles.listContainer } >
-        <FlatList 
-          data={ itemsList }
-          renderItem={ renderListItem }
-          keyExtractor={ item => item.id }
-        />        
-      </View>
+      <PatientList itemsList={ itemsList } renderListItem={ renderListItem } />
 
       <PrimaryModal modalVisible={modalVisible} onHandleDelete={onHandleDelete} />
 
@@ -77,26 +66,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#00CCCC',
     alignItems: 'center',
     paddingTop: 100
-  },
-  inputContainer: {
-    flexDirection: 'row',
-  },
-  input: {
-    width: 300,
-    height: 40,
-    marginHorizontal: 10,
-    paddingLeft: 15,
-    borderRadius: 100,
-    backgroundColor: 'white',
-    fontSize: 18
-  },
-  listContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 350,
-    marginTop: 15,
-    // borderWidth: 1,
-    borderColor: 'white',
   },
   textCointainer: {
     width: '100%',
