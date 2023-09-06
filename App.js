@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, StyleSheet, TextInput, Text, View, FlatList, Modal } from 'react-native';
+import { Button, StyleSheet, TextInput, Text, View, FlatList, Modal, TouchableOpacity } from 'react-native';
 
 
 export default function App() {
@@ -18,18 +18,25 @@ export default function App() {
     ])
   }
 
-  const renderListItem = ({item}) => (
-    <View style={ styles.textCointainer } >
+  const renderListItem = ({ item, index }) => (
+    <TouchableOpacity 
+      style={ styles.textCointainer }
+      onPress={ () => onHandleModal(index) }      
+      >
       <Text style={ styles.text } >{item.value}</Text>
-    </View>  
+    </TouchableOpacity>
   )
 
   const onHandleDelete = () => {
-
+    let arr = itemsList
+    arr.splice(itemSelected, 1)
+    setItemsList(arr)
+    setModalVisible(false)
   }
 
-  const onHandleModal = () => {
-
+  const onHandleModal = index => {
+    setModalVisible(true)
+    setItemSelected(index)
   }
 
   return (
@@ -66,12 +73,12 @@ export default function App() {
           <Text>Mi Modal</Text>  
         </View>  
         <View style={ styles.modalMessage } >
-          <Text>Estas seguro de eliminar?</Text>
+          <Text>Estas seguro de eliminar este elemento?</Text>
         </View>
         <View style={ styles.modalButton } >
           <Button title='Confirmar' onPress={ onHandleDelete }/>
         </View>
-      </Modal>     
+      </Modal>  
 
     </View>
   );
@@ -101,7 +108,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 350,
     marginTop: 15,
-    borderWidth: 1,
+    // borderWidth: 1,
     borderColor: 'white',
   },
   textCointainer: {
