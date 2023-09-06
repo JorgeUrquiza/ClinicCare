@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Modal, Button } from 'react-native';
+import { StyleSheet, Text, View, Modal, Button, TouchableOpacity } from 'react-native';
 
 const PrimaryModal = ({ modalVisible, onHandleDelete }) => {
   return (
@@ -10,14 +10,20 @@ const PrimaryModal = ({ modalVisible, onHandleDelete }) => {
     >
     <View style={ styles.modalContainer } >
       <View style={ styles.modalContent }>
-        <View style={ styles.modalTitle } >
-          <Text>Mi Modal</Text>  
+        <View  >
+          <Text style={ styles.modalTitle }>Eliminar</Text>  
         </View>  
         <View style={ styles.modalMessage } >
-          <Text>¿Estas seguro de eliminar a este paciente?</Text>
+          <Text>¿Estas seguro que desea eliminar al paciente?</Text>
         </View>
         <View style={ styles.modalButton } >
-          <Button title='Confirmar' onPress={ onHandleDelete } color={'black'}/>
+          
+          <TouchableOpacity
+            onPress={ onHandleDelete }
+            style={ styles.confirmButton }
+          >
+            <Text style={ styles.confirmText } >Confirmar</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -36,20 +42,27 @@ const styles = StyleSheet.create({
       modalContent: {
         backgroundColor: 'white',
         borderRadius: 20,
-        padding: 35,
+        paddingVertical: 35,
+        paddingHorizontal: 25,
         alignItems: 'center',
     
       },
       modalTitle:{
-        color: 'white',
-        fontSize: 18
+        fontSize: 20,
+        fontWeight: 'bold'
       },
       modalMessage: {
+        marginTop: 10,
         marginBottom: 15,
-        justifyContent: 'center',
-        alignItems: 'center'    
       },
-      modalButton: {
-        marginTop: 15,
+      confirmButton:{
+        backgroundColor: '#E58824',
+        borderRadius: 8,
+        marginTop: 20,
+        padding: 10,
+      },
+      confirmText: {
+        color: 'white',
+        fontWeight: '500'
       }
 })

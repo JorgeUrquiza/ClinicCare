@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View, Button } from 'react-native'
+import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native'
 import React from 'react'
 
 const PatientTextInput = ({ textValue, onHandleChangeItem, addItem }) => {
@@ -11,11 +11,13 @@ const PatientTextInput = ({ textValue, onHandleChangeItem, addItem }) => {
         value={ textValue }
         onChangeText={ onHandleChangeItem }
         />
-        <Button 
-        title='Agregar'
-        onPress={ addItem }
-        color={'#000'}
-        />
+        
+        <TouchableOpacity
+          onPress={ addItem }
+          style={ styles.buttonAdd }
+        >
+          <Text style={ styles.buttonText }>Agregar</Text>
+        </TouchableOpacity>
   </View>
   )
 }
@@ -37,4 +39,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         fontSize: 18
       },
+      buttonAdd: {
+        backgroundColor: '#E58824',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5,
+        borderRadius: 8,
+      },
+      buttonText:{
+        color: 'white',
+        fontSize: 15,
+        fontWeight: '500'
+      }
 })
