@@ -14,10 +14,10 @@ const PrimaryModal = ({ modalVisible, onHandleDelete }) => {
           <Text>Mi Modal</Text>  
         </View>  
         <View style={ styles.modalMessage } >
-          <Text>Estas seguro de eliminar este elemento?</Text>
+          <Text>¿Estas seguro de eliminar a este paciente?</Text>
         </View>
         <View style={ styles.modalButton } >
-          <Button title='Confirmar' onPress={ onHandleDelete }/>
+          <Button title='Confirmar' onPress={ onHandleDelete } color={'black'}/>
         </View>
       </View>
     </View>

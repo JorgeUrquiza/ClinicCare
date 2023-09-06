@@ -12,8 +12,9 @@ const PatientTextInput = ({ textValue, onHandleChangeItem, addItem }) => {
         onChangeText={ onHandleChangeItem }
         />
         <Button 
-        title='ADD'
+        title='Agregar'
         onPress={ addItem }
+        color={'#000'}
         />
   </View>
   )
@@ -24,9 +25,11 @@ export default PatientTextInput
 const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderRadius: 10,
       },
       input: {
-        width: 300,
+        width: '70%',
         height: 40,
         marginHorizontal: 10,
         paddingLeft: 15,

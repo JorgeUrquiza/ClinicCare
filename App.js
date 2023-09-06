@@ -13,13 +13,15 @@ export default function App() {
   const [ itemSelected, setItemSelected ] = useState({});
   const [ modalVisible, setModalVisible ] = useState(false);
 
-  const onHandleChangeItem = ( text ) => setTextValue(text) 
+  const onHandleChangeItem = ( text ) => setTextValue(text)
+  
 
   const addItem = () => {
     setItemsList(prevState=> [
       ...prevState, 
       { id: Math.random(), value: textValue}
     ])
+    setTextValue('')
   }
 
   const renderListItem = ({ item, index }) => (
@@ -45,7 +47,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      
+      <Text style={ styles.title } >Historia Clinica</Text>
       <PatientTextInput 
         addItem={ addItem } 
         onHandleChangeItem={ onHandleChangeItem }
@@ -63,21 +65,29 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#00CCCC',
+    backgroundColor: '#008F8F',
     alignItems: 'center',
-    paddingTop: 100
+    paddingTop: 70
+  },
+  title:{
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: 'white'
   },
   textCointainer: {
     width: '100%',
-    alignItems: 'center',
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
     borderColor: 'white',
     borderWidth: 2,
-    marginVertical: 15,
-    padding: 10,
-    backgroundColor: '#ffffff77'
+    marginVertical: 10,
+    paddingLeft: 10,
+    backgroundColor: '#ffffff99'
   },
   text: {
-    fontSize: 24,
+    fontSize: 18,
     color: 'black',
     fontWeight: 'bold'
   },

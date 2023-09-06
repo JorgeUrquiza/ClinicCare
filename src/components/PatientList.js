@@ -18,10 +18,8 @@ export default PatientList
 const styles = StyleSheet.create({
     listContainer: {
         justifyContent: 'center',
-        alignItems: 'center',
         width: 350,
         marginTop: 15,
-        // borderWidth: 1,
         borderColor: 'white',
       },
 })
