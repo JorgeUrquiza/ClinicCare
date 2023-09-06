@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import PrimaryModal from './src/components/PrimaryModal';
 import PatientTextInput from './src/components/PatientTextInput';
@@ -25,12 +26,28 @@ export default function App() {
   }
 
   const renderListItem = ({ item, index }) => (
-    <TouchableOpacity 
+    // <TouchableOpacity 
+    //   style={ styles.textCointainer }
+    //   onPress={ () => onHandleModal(index) }      
+    //   >
+    //   <Text style={ styles.text } >{item.value}</Text>
+    // </TouchableOpacity>
+
+      <View 
       style={ styles.textCointainer }
       onPress={ () => onHandleModal(index) }      
       >
-      <Text style={ styles.text } >{item.value}</Text>
-    </TouchableOpacity>
+        <Text style={ styles.text } >{item.value}</Text>
+
+        <TouchableOpacity
+          style= { styles.icon }
+          onPress={ () => onHandleModal(index) }
+        >
+          <Ionicons name="trash-outline" size={ 30 } color={ 'red' }/>
+        </TouchableOpacity>
+
+      </View>
+
   )
 
   const onHandleDelete = () => {
@@ -47,7 +64,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={ styles.title } >Historia Clinica</Text>
+      <Text style={ styles.title } >Historia Clínica</Text>
       <PatientTextInput 
         addItem={ addItem } 
         onHandleChangeItem={ onHandleChangeItem }
@@ -76,11 +93,13 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   textCointainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     width: '100%',
+    borderColor: 'white',
     height: 50,
     borderRadius: 10,
-    justifyContent: 'center',
-    borderColor: 'white',
     borderWidth: 2,
     marginVertical: 10,
     paddingLeft: 10,
@@ -91,6 +110,9 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold'
   },
+  icon: {
+    paddingRight: 10
+  }
 });
 
 
