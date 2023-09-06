@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, StyleSheet, TextInput, Text, View, FlatList, Modal, TouchableOpacity } from 'react-native';
+import PrimaryModal from './src/components/PrimaryModal';
 
 
 export default function App() {
@@ -56,7 +57,6 @@ export default function App() {
         />
       </View>
 
-
       <View style={ styles.listContainer } >
         <FlatList 
           data={ itemsList }
@@ -65,20 +65,7 @@ export default function App() {
         />        
       </View>
 
-      <Modal
-        visible= { modalVisible }
-        animationType='fade'
-      >
-        <View style={ styles.modalTitle } >
-          <Text>Mi Modal</Text>  
-        </View>  
-        <View style={ styles.modalMessage } >
-          <Text>Estas seguro de eliminar este elemento?</Text>
-        </View>
-        <View style={ styles.modalButton } >
-          <Button title='Confirmar' onPress={ onHandleDelete }/>
-        </View>
-      </Modal>  
+      <PrimaryModal modalVisible={modalVisible} onHandleDelete={onHandleDelete} />
 
     </View>
   );
@@ -125,22 +112,6 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold'
   },
-  modalTitle:{
-    backgroundColor: '#ccc',
-    color: 'white',
-    fontSize: 18
-  },
-  modalMessage: {
-    marginBottom: 15,
-    justifyContent: 'center',
-    alignItems: 'center'    
-  },
-  modalButton: {
-    marginTop: 15,
-  }
 });
 
 
-// <View style={ styles.textCointainer } >
-// <Text style={ styles.text } >Paciente 1</Text>
-// </View>
