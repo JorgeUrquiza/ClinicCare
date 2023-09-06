@@ -1,6 +1,37 @@
-import { Button, StyleSheet, TextInput, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, StyleSheet, TextInput, Text, View, FlatList, Modal } from 'react-native';
+
 
 export default function App() {
+
+  const [ textValue , setTextValue ] = useState('');
+  const [ itemsList, setItemsList ] = useState([]);
+  const [ itemSelected, setItemSelected ] = useState({});
+  const [ modalVisible, setModalVisible ] = useState(false);
+
+  const onHandleChangeItem = ( text ) => setTextValue(text) 
+
+  const addItem = () => {
+    setItemsList(prevState=> [
+      ...prevState, 
+      { id: Math.random(), value: textValue}
+    ])
+  }
+
+  const renderListItem = ({item}) => (
+    <View style={ styles.textCointainer } >
+      <Text style={ styles.text } >{item.value}</Text>
+    </View>  
+  )
+
+  const onHandleDelete = () => {
+
+  }
+
+  const onHandleModal = () => {
+
+  }
+
   return (
     <View style={styles.container}>
 
@@ -8,30 +39,39 @@ export default function App() {
         <TextInput 
           style={ styles.input }
           placeholder='Nombre del paciente'
+          placeholderTextColor={ 'grey' }
+          value={ textValue }
+          onChangeText={ onHandleChangeItem }
         />
         <Button 
           title='ADD'
+          onPress={ addItem }
         />
       </View>
 
 
       <View style={ styles.listContainer } >
-
-        <View style={ styles.textCointainer } >
-          <Text style={ styles.text } >Paciente 1</Text>
-        </View>
-
-        <View style={ styles.textCointainer } >
-          <Text style={ styles.text } >Paciente 2</Text>
-        </View>
-
-        <View style={ styles.textCointainer } >
-          <Text style={ styles.text } >Paciente 3</Text>
-        </View>
-        
+        <FlatList 
+          data={ itemsList }
+          renderItem={ renderListItem }
+          keyExtractor={ item => item.id }
+        />        
       </View>
 
-
+      <Modal
+        visible= { modalVisible }
+        animationType='fade'
+      >
+        <View style={ styles.modalTitle } >
+          <Text>Mi Modal</Text>  
+        </View>  
+        <View style={ styles.modalMessage } >
+          <Text>Estas seguro de eliminar?</Text>
+        </View>
+        <View style={ styles.modalButton } >
+          <Button title='Confirmar' onPress={ onHandleDelete }/>
+        </View>
+      </Modal>     
 
     </View>
   );
@@ -41,8 +81,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#00CCCC',
-    justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 100
   },
   inputContainer: {
     flexDirection: 'row',
@@ -60,16 +100,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: 350,
-    marginTop: 20,
-    borderWidth: 2,
+    marginTop: 15,
+    borderWidth: 1,
     borderColor: 'white',
   },
   textCointainer: {
-    width: '90%',
+    width: '100%',
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: 2,
-    marginVertical: 20,
+    marginVertical: 15,
     padding: 10,
     backgroundColor: '#ffffff77'
   },
@@ -77,5 +117,23 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'black',
     fontWeight: 'bold'
+  },
+  modalTitle:{
+    backgroundColor: '#ccc',
+    color: 'white',
+    fontSize: 18
+  },
+  modalMessage: {
+    marginBottom: 15,
+    justifyContent: 'center',
+    alignItems: 'center'    
+  },
+  modalButton: {
+    marginTop: 15,
   }
 });
+
+
+// <View style={ styles.textCointainer } >
+// <Text style={ styles.text } >Paciente 1</Text>
+// </View>
