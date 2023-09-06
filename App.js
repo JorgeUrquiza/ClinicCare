@@ -26,13 +26,6 @@ export default function App() {
   }
 
   const renderListItem = ({ item, index }) => (
-    // <TouchableOpacity 
-    //   style={ styles.textCointainer }
-    //   onPress={ () => onHandleModal(index) }      
-    //   >
-    //   <Text style={ styles.text } >{item.value}</Text>
-    // </TouchableOpacity>
-
       <View 
       style={ styles.textCointainer }
       onPress={ () => onHandleModal(index) }      
