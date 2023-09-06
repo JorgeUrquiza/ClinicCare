@@ -18,6 +18,10 @@ export default function App() {
   
 
   const addItem = () => {
+    if( textValue.length < 3 ){
+      return
+    }
+
     setItemsList(prevState=> [
       ...prevState, 
       { id: Math.random(), value: textValue}
