@@ -1,5 +1,6 @@
-import { StyleSheet, View, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 import React from 'react'
+import styles from './PatienList.style'
 
 const PatientList = ({ itemsList, renderListItem  }) => {
   return (
@@ -15,12 +16,3 @@ const PatientList = ({ itemsList, renderListItem  }) => {
 
 export default PatientList
 
-const styles = StyleSheet.create({
-    listContainer: {
-        justifyContent: 'center',
-        width: 350,
-        marginTop: 15,
-        marginBottom: 110,
-        borderColor: 'white',
-      },
-})
