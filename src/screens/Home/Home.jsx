@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {  Text, View, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { PrimaryModal, PatientTextInput, PatientList } from '../../components';
+import { PrimaryModal, PatientTextInput, PatientList, Header } from '../../components';
 import styles from './Home.style';
+import Categories from '../../components/Categories/Categories';
 
 
 const Home = () => {
@@ -59,7 +60,7 @@ const Home = () => {
   
     return (
       <View style={styles.container}>
-        <Text style={ styles.title } >Historia Clínica</Text>
+        <Header title={'Historia Clinica'} />
         <PatientTextInput 
           addItem={ addItem } 
           onHandleChangeItem={ onHandleChangeItem }
@@ -69,7 +70,9 @@ const Home = () => {
         <PatientList itemsList={ itemsList } renderListItem={ renderListItem } />
   
         <PrimaryModal modalVisible={modalVisible} onHandleDelete={onHandleDelete} onHandleClose={onHandleClose} />
-  
+
+        <Categories />
+
       </View>
     );
 }
