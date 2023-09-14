@@ -7,12 +7,6 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 70
       },
-      title:{
-        fontSize: 30,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        color: 'white'
-      },
       textCointainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',

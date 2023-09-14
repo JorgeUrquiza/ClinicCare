@@ -2,6 +2,8 @@ import { View, FlatList } from 'react-native'
 import React from 'react'
 import styles from './PatienList.style'
 
+// Cambiar nombre a CategoryList
+
 const PatientList = ({ itemsList, renderListItem  }) => {
   return (
     <View style={ styles.listContainer } >
@@ -9,7 +11,8 @@ const PatientList = ({ itemsList, renderListItem  }) => {
           data={ itemsList }
           renderItem={ renderListItem }
           keyExtractor={ item => item.id }
-        />        
+        />    
+
     </View>
   )
 }
