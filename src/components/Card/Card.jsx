@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
+import styles from './Card.style'
 
 const Card = ({children, style}) => {
   return <View style={[styles.container, style]}>{children}</View>
@@ -7,8 +8,3 @@ const Card = ({children, style}) => {
 
 export default Card
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'green',              
-    }
-})
