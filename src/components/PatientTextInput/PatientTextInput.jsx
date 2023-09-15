@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native';
+import { TextInput, View, TouchableOpacity, Text } from 'react-native';
 import React from 'react';
 import styles from './PatienTextInput.style';
 

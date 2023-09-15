@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/colors";
 
 export default styles = StyleSheet.create({
     modalContainer: {
@@ -28,14 +29,14 @@ export default styles = StyleSheet.create({
         justifyContent: 'space-between',
       },
       confirmButton:{
-        backgroundColor: '#A2011E',
+        backgroundColor: colors.quaternary,
         borderRadius: 8,
         marginTop: 20,
         padding: 10,
         marginHorizontal: 5
       },
       closeButton: {
-        backgroundColor: '#E58824',
+        backgroundColor: colors.secondary,
         borderRadius: 8,
         marginTop: 20,
         padding: 10,

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/colors";
 
 
 export default styles = StyleSheet.create({
@@ -17,7 +18,7 @@ export default styles = StyleSheet.create({
         fontSize: 18
       },
       buttonAdd: {
-        backgroundColor: '#E58824',
+        backgroundColor: colors.secondary,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
