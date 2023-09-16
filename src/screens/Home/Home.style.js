@@ -4,8 +4,8 @@ import { colors } from "../../constants/colors";
 export default styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
         backgroundColor: colors.primary,
-        alignItems: 'center',
         paddingTop: 70
       },
       textCointainer: {

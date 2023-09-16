@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {  Text, View, TouchableOpacity } from 'react-native';
+import { View, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { PrimaryModal, PatientTextInput, PatientList, Header } from '../../components';
 import styles from './Home.style';
-import Categories from '../../components/Categories/Categories';
+import dataCategories from '../../data/dataCategories';
+import { CategoryItem } from './components';
 
 
 const Home = () => {
@@ -70,8 +71,12 @@ const Home = () => {
         {/* <PatientList itemsList={ itemsList } renderListItem={ renderListItem } /> */}
   
         {/* <PrimaryModal modalVisible={modalVisible} onHandleDelete={onHandleDelete} onHandleClose={onHandleClose} /> */}
-
-        <Categories />
+        
+        <FlatList
+          data={dataCategories}
+          keyExtractor={category => category}
+          renderItem={({item}) => <CategoryItem category={item} /> }
+        />
 
       </View>
     );
