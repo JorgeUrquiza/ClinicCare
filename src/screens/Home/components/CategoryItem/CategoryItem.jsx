@@ -3,9 +3,9 @@ import { Pressable, Text } from 'react-native';
 import { Card } from '../../../../components';
 import styles from './CategoryItem.style';
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, setCategorySelected}) => {
   return (
-    <Pressable onPress={() => console.log(`esta es la categoria ${category}`)}>
+    <Pressable onPress={() => setCategorySelected(category)}>
       <Card style={styles.cardContainer} >
         <Text style={ styles.text } > {category} </Text>
       </Card>

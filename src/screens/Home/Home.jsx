@@ -6,7 +6,7 @@ import dataCategories from '../../data/dataCategories';
 import { CategoryItem } from './components';
 
 
-const Home = () => {
+const Home = ({setCategorySelected}) => {
       
     return (
       <View style={styles.container}>
@@ -15,7 +15,11 @@ const Home = () => {
         <FlatList
           data={dataCategories}
           keyExtractor={category => category}
-          renderItem={({item}) => <CategoryItem category={item} /> }
+          renderItem={({item}) => 
+            <CategoryItem 
+              category={item} 
+              setCategorySelected={setCategorySelected} 
+          /> }
         />
 
       </View>

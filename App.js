@@ -1,6 +1,13 @@
+import { useState } from "react"
 import { Home, PatientList } from "./src/screens"
 
 export default function App() {
-  return <PatientList category={'Clinico'}/> 
+  const [categorySelected, setCategorySelected] = useState('')
+
+  return categorySelected 
+    ? ( <PatientList category={categorySelected}/> )
+    : ( <Home setCategorySelected={setCategorySelected} /> )
+  
+  
 }
 
