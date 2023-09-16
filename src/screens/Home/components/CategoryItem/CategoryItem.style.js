@@ -9,8 +9,9 @@ export default styles = StyleSheet.create({
       alignItems: 'center',
     },
     text: {
-      fontSize: 18,
+      fontSize: 20,
       color: 'black',
-      fontWeight: 'bold'
+      fontFamily: 'PlayfairBold',
+      // fontWeight: 'bold'
     }
   })
