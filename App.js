@@ -1,6 +1,6 @@
-import { Home } from "./src/screens"
+import { Home, PatientList } from "./src/screens"
 
 export default function App() {
-  return <Home /> 
+  return <PatientList category={'Clinico'}/> 
 }
 

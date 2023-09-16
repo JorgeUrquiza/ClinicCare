@@ -1,9 +1,10 @@
 export default [
     "Clinico",
     "Traumatologia",
-    "Pediatria",
-    "Cardiologia",
-    "Oftalmologia",
-    "Dermatologia",
-    "Psicologia",
+    "Pediatría",
+    "Cardiología",
+    "Oftalmología",
+    "Dermatología",
+    "Psicología",
+    "Urología"
 ]
