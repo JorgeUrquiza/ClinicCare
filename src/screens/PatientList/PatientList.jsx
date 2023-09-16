@@ -4,6 +4,10 @@ import { Header, SearchInput } from '../../components';
 import styles from './PatientList.style';
 import allPatients from '../../data/patients';
 
+
+// probando
+import PatientListItem from './components/PatientListItem/PatientListItem';
+
 const PatientList = ({category}) => {
 
   const [ arrPatients, setArrPatients ] = useState([]);
@@ -42,9 +46,15 @@ const PatientList = ({category}) => {
 
       <View style={ styles.listContainer } > 
 
-        <FlatList 
+        {/* <FlatList 
           data={arrPatients}
           renderItem={({item}) => (<View><Text>{item.name}</Text></View>)}
+          keyExtractor={item => item.id}
+        /> */}
+
+        <FlatList 
+          data={arrPatients}
+          renderItem={({item}) => <PatientListItem item={item.name}/>}
           keyExtractor={item => item.id}
         />
 
