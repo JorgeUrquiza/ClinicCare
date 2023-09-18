@@ -16,6 +16,12 @@ export default styles = StyleSheet.create({
         color: 'white',
         marginBottom: 10,
     },
+    image: {
+        width: 150,
+        height: 150,
+        borderRadius: 100,
+        marginBottom: 20
+    },
     containerDescription: {
         width: '100%',
         padding: 10,
