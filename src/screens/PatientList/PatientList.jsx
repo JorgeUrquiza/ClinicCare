@@ -8,10 +8,11 @@ import allPatients from '../../data/patients';
 // probando
 import PatientListItem from './components/PatientListItem/PatientListItem';
 
-const PatientList = ({category, setPatientSelected}) => {
+const PatientList = ({ navigation, route }) => {
 
   const [ arrPatients, setArrPatients ] = useState([]);
   const [ keyWord, setKeyword ] = useState('');
+  const { category } = route.params
 
   useEffect(() => {
     
@@ -48,7 +49,7 @@ const PatientList = ({category, setPatientSelected}) => {
 
         <FlatList 
           data={arrPatients}
-          renderItem={({item}) => <PatientListItem item={item} setPatientSelected={setPatientSelected} />}
+          renderItem={({item}) => <PatientListItem item={item} navigation={navigation}  />}
           keyExtractor={item => item.id}
         />
 

@@ -1,11 +1,11 @@
 export default [
     {
         id: 1,
-        name: 'Joe Doe',
+        name: 'Jorge Urquiza',
         age: 30,
         category: 'Clinico',
-        sintoma: 'Dolor de piernas',
-        description: 'El paciente Joe Doe presenta dolor en las piernas como síntoma.'
+        sintoma: 'Exceso de facha',
+        description: 'El paciente Jorge Urquiza presenta exceso de facha como síntoma.'
     },
     {
         id: 2,

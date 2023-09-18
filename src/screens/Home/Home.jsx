@@ -6,7 +6,7 @@ import dataCategories from '../../data/dataCategories';
 import { CategoryItem } from './components';
 
 
-const Home = ({setCategorySelected}) => {
+const Home = ({setCategorySelected, navigation }) => {
       
     return (
       <View style={styles.container}>
@@ -17,8 +17,8 @@ const Home = ({setCategorySelected}) => {
           keyExtractor={category => category}
           renderItem={({item}) => 
             <CategoryItem 
-              category={item} 
-              setCategorySelected={setCategorySelected} 
+              category={item}
+              navigation={navigation}
           /> }
         />
 

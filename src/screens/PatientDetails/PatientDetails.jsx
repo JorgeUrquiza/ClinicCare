@@ -5,7 +5,9 @@ import styles from './PatientDetails.style';
 
 import doctor from '../../assets/images/doctor.png'
 
-const PatientDetails = ({patient}) => {
+const PatientDetails = ({ route }) => {
+  const {patient} = route.params
+
   return (
     <View style={styles.container} >
 
