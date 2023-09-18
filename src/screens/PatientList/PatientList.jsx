@@ -8,7 +8,7 @@ import allPatients from '../../data/patients';
 // probando
 import PatientListItem from './components/PatientListItem/PatientListItem';
 
-const PatientList = ({category}) => {
+const PatientList = ({category, setPatientSelected}) => {
 
   const [ arrPatients, setArrPatients ] = useState([]);
   const [ keyWord, setKeyword ] = useState('');
@@ -46,15 +46,9 @@ const PatientList = ({category}) => {
 
       <View style={ styles.listContainer } > 
 
-        {/* <FlatList 
-          data={arrPatients}
-          renderItem={({item}) => (<View><Text>{item.name}</Text></View>)}
-          keyExtractor={item => item.id}
-        /> */}
-
         <FlatList 
           data={arrPatients}
-          renderItem={({item}) => <PatientListItem item={item.name}/>}
+          renderItem={({item}) => <PatientListItem item={item} setPatientSelected={setPatientSelected} />}
           keyExtractor={item => item.id}
         />
 

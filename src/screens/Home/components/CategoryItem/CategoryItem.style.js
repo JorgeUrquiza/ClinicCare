@@ -12,6 +12,5 @@ export default styles = StyleSheet.create({
       fontSize: 20,
       color: 'black',
       fontFamily: 'PlayfairBold',
-      // fontWeight: 'bold'
     }
   })
