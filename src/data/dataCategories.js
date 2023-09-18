@@ -1,6 +1,6 @@
 export default [
     "Clinico",
-    "Traumatologia",
+    "Traumatología",
     "Pediatría",
     "Cardiología",
     "Oftalmología",

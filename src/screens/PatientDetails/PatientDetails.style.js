@@ -8,11 +8,29 @@ export default styles = StyleSheet.create({
         backgroundColor: colors.primary,
         paddingTop: 70,
         paddingHorizontal:10,
+        flexDirection: 'column',
+        alignItems: 'center'
       },
     title: {
         fontSize: 30,
+        color: 'white',
+        marginBottom: 10,
+    },
+    containerDescription: {
+        width: '100%',
+        padding: 10,
+        marginVertical: 5,
+        backgroundColor: '#ffffff99',
+        borderColor: 'white',
+        borderRadius: 15,
+        borderWidth: 2,
+    },
+    subTitle: {
+        fontFamily: 'PlayfairBold',
+        fontSize: 22
     },
     description: {
-        fontSize: 20
+        fontSize: 20,
+        paddingBottom: 10
     }
 })
