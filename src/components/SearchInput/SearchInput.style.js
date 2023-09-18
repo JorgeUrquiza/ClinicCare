@@ -2,19 +2,20 @@ import { StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
     inputContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '98%',
-        borderRadius: 10,
+      marginHorizontal: 10,        
       },
-      input: {
-        width: '75%',
-        height: 40,
-        marginHorizontal: 10,
-        paddingLeft: 15,
-        borderRadius: 100,
+      textBackground: {
         backgroundColor: 'white',
-        fontSize: 18
+        borderRadius: 50,
+        height: 40,
+        paddingHorizontal: 20,
+        flexDirection: 'row' ,
+        justifyContent: 'center',
+        alignItems: 'center'
+        
+      },
+      textInput: {
+        flex: 1,
+        fontSize: 18,
       },
 })

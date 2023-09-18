@@ -19,29 +19,24 @@ const SearchInput = ({ onSearch }) => {
 
   return (
     <View style={ styles.inputContainer } >
-      <TextInput
-        style={ styles.input }
-        placeholder='Nombre del paciente'
-        placeholderTextColor={ 'grey' }
-        value={ value }
-        onChangeText={ setValue }
-      />
-    <TouchableOpacity onPress={search} >
+      <View style={ styles.textBackground } > 
+           
+        <TextInput
+          placeholder='Nombre del paciente'
+          style={ styles.textInput }
+          placeholderTextColor={ 'grey' }
+          value={ value }
+          onChangeText={ setValue }
+        />
+
         <Ionicons 
             name='search-outline'
             size={ 30 }
-            color={ 'white' }
+            color={ 'grey' }
+            onPress={ search }
         />
-    </TouchableOpacity>
 
-    <TouchableOpacity onPress={ clearInput } >
-        <Ionicons 
-            name='arrow-undo-circle-outline'
-            size={ 30 }
-            color={ 'white' }
-        />
-    </TouchableOpacity>
-
+      </View>
     </View>
   )
 }
