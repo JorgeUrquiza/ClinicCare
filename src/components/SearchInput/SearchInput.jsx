@@ -11,10 +11,10 @@ const SearchInput = ({ onSearch }) => {
         onSearch(value);
     }
 
-    const clearInput = () => {
-        setValue('');
-        onSearch('');
-    }
+    // const clearInput = () => {
+    //     setValue('');
+    //     onSearch('');
+    // }
 
 
   return (
