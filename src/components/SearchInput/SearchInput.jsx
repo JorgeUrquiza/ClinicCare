@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from './SearchInput.style'
+import { useDebouncedValue } from '../../hooks/useDebouncedValue';
 
 const SearchInput = ({ onSearch }) => {
 
     const [value, setValue] = useState('');
 
-    const search = () => {
-        onSearch(value);
-    }
+    const debouncedValue = useDebouncedValue(value)
 
-    // const clearInput = () => {
-    //     setValue('');
-    //     onSearch('');
-    // }
-
+    useEffect(() => {
+      onSearch(debouncedValue);
+    }, [debouncedValue])
+    
 
   return (
     <View style={ styles.inputContainer } >
@@ -33,7 +31,6 @@ const SearchInput = ({ onSearch }) => {
             name='search-outline'
             size={ 30 }
             color={ 'grey' }
-            onPress={ search }
         />
 
       </View>

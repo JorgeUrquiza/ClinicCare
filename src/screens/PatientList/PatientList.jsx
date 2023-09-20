@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { Header, SearchInput } from '../../components';
 import styles from './PatientList.style';
 import allPatients from '../../data/patients';
@@ -40,7 +40,7 @@ const PatientList = ({ navigation, route }) => {
       
       <Header title={category} />
 
-      <SearchInput onSearch={setKeyword}/>
+      <SearchInput onSearch={setKeyword} />
 
       <View style={ styles.listContainer } > 
 
