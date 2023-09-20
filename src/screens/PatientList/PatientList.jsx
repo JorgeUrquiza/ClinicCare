@@ -3,9 +3,6 @@ import { FlatList, View, Text } from 'react-native';
 import { Header, SearchInput } from '../../components';
 import styles from './PatientList.style';
 import allPatients from '../../data/patients';
-
-
-// probando
 import PatientListItem from './components/PatientListItem/PatientListItem';
 
 const PatientList = ({ navigation, route }) => {

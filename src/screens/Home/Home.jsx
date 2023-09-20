@@ -6,8 +6,8 @@ import dataCategories from '../../data/dataCategories';
 import { CategoryItem } from './components';
 
 
-const Home = ({setCategorySelected, navigation }) => {
-      
+const Home = ({ navigation }) => {
+  
     return (
       <View style={styles.container}>
         <Header title={'Historia Clinica'} />
