@@ -11,8 +11,15 @@ export default styles = StyleSheet.create({
         paddingHorizontal: 20,
         flexDirection: 'row' ,
         justifyContent: 'center',
-        alignItems: 'center'
-        
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,        
       },
       textInput: {
         flex: 1,
