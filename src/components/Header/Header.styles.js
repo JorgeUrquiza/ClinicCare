@@ -3,7 +3,7 @@ import { colors } from "../../constants/colors";
 
 export default styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.secondary,
         height: 80,
         width: '100%',
         justifyContent: 'center',
