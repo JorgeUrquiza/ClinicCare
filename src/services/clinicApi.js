@@ -3,7 +3,7 @@ import { baseUrl } from '../firebase';
 
 export const clinicApi = createApi({
     reducerPath: 'clinicApi',
-    baseQuery: fetchBaseQuery({ baseUrl }), // 'https://cliniccare-94406-default-rtdb.firebaseio.com/'
+    baseQuery: fetchBaseQuery({baseUrl}), // 'https://cliniccare-94406-default-rtdb.firebaseio.com/'
     endpoints: builder => ({
         getCategories: builder.query({
             query: () => 'categories.json',

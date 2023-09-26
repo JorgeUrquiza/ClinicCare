@@ -3,7 +3,7 @@ import { useFonts } from "expo-font"
 import fonts from "./src/global/fonts"
 import BottomTabNavigator from './src/navigator/BottomTabNAvigator';
 import { Provider } from "react-redux";
-import { store } from "./src/store/index"
+import  store  from "./src/store/index"
 
 export default function App() {
   
