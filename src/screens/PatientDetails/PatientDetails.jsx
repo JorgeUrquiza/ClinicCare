@@ -35,4 +35,4 @@ const PatientDetails = ({ route }) => {
   )
 }
 
-export default PatientDetails
+export default PatientDetails;

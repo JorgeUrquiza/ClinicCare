@@ -13,5 +13,5 @@ const PatientListItem = ({item, navigation}) => {
   )
 }
 
-export default PatientListItem
+export default PatientListItem;
 

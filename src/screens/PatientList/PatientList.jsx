@@ -59,5 +59,5 @@ const PatientList = ({ navigation }) => {
   )
 }
 
-export default PatientList
+export default PatientList;
 

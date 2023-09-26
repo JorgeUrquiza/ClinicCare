@@ -38,7 +38,6 @@ function BottomTabNavigator() {
                 )
             }} />
 
-            {/* Probando addPAtient */}
             <BottomTab.Screen name="AddNavigator" component={AddNavigator} options={{
                 tabBarIcon: ({focused}) => (
                     <Ionicons
