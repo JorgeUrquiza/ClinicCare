@@ -4,12 +4,13 @@ import { Header, SearchInput } from '../../components';
 import styles from './PatientList.style';
 import allPatients from '../../data/patients';
 import PatientListItem from './components/PatientListItem/PatientListItem';
+import { useSelector } from 'react-redux';
 
-const PatientList = ({ navigation, route }) => {
-
+const PatientList = ({ navigation }) => {
+  const category = useSelector(state => state.clinic.categorySelected)
   const [ arrPatients, setArrPatients ] = useState([]);
   const [ keyWord, setKeyword ] = useState('');
-  const { category } = route.params
+
 
   useEffect(() => {
     

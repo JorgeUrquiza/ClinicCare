@@ -14,11 +14,11 @@ export const clinicSlice = createSlice({
     name: 'clinic',
     initialState,
     reducers: { 
-        setCategorySelected: () => { 
-
+        setCategorySelected: (state, action) => { 
+            state.categorySelected = action.payload
         },
         setPatientSelected: (state, action) => { 
-
+            state.patientSelected = action.payload
         },
     }
 })
