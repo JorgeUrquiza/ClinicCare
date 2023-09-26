@@ -5,6 +5,8 @@ import { StyleSheet } from "react-native";
 import { colors } from "../constants/colors";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+import AddNavigator from "./AddNavigator";
+
 
 const BottomTab = createBottomTabNavigator();
 
@@ -35,6 +37,18 @@ function BottomTabNavigator() {
                     />
                 )
             }} />
+
+            {/* Probando addPAtient */}
+            <BottomTab.Screen name="AddNavigator" component={AddNavigator} options={{
+                tabBarIcon: ({focused}) => (
+                    <Ionicons
+                        name="person-add-outline"
+                        size={30}
+                        color={focused ? 'white' : 'grey' }
+                    />
+                )
+            }} />
+
         </BottomTab.Navigator>
     )
 
