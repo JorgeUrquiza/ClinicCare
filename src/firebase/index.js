@@ -1,0 +1,1 @@
+export const baseUrl = 'https://cliniccare-94406-default-rtdb.firebaseio.com/'
