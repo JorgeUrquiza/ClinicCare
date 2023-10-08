@@ -9,6 +9,8 @@ const PatientList = ({ navigation }) => {
   const [arrPatients, setArrPatients] = useState([]);
   const [keyWord, setKeyword] = useState('');
 
+  //Actualizar lista de pacientes para firebase
+
   useEffect(() => {
     const patientsFiltered = allPatients.filter((patient) =>
       patient.name.includes(keyWord)
