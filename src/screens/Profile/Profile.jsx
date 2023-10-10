@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCamaraImage } from '../../features/auth/authSlice';
 import { usePostProfileImageMutation } from '../../services/clinicApi';
 import {Header} from '../../components/'
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 const Profile = () => {
 
@@ -68,10 +70,15 @@ const Profile = () => {
             }
 
             <Pressable
-                style={styles.button}
+                style={{...styles.button, width: 70}}
                 onPress={pickImage}
             >
-                <Text style={ styles.buttonText } >Tomar foto de perfil</Text>
+
+                <Ionicons 
+                    name='camera-reverse'
+                    size={ 30 }
+                    color={ 'black' }
+                />
             </Pressable>
 
             <Pressable

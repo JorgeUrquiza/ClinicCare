@@ -10,31 +10,33 @@ const AddPatient = () => {
     <View style={ styles.container }>
       <Header title={'Agregar Paciente'} />
 
-      <TextInput 
-        placeholder="Nombre del Paciente"
-        style={ styles.TextInput }
-      />
+      <View style={ styles.formContainer }>
+          <TextInput 
+            placeholder="Nombre del Paciente"
+            style={ styles.TextInput }
+            />
 
-      <TextInput 
-        placeholder="Edad"
-        style={ styles.TextInput }
-        keyboardType='numeric'
-      />
+          <TextInput 
+            placeholder="Edad"
+            style={ styles.TextInput }
+            keyboardType='numeric'
+            />
 
-      <TextInput 
-        placeholder="Categoria"
-        style={ styles.TextInput }
-      />
+          <TextInput 
+            placeholder="Categoria"
+            style={ styles.TextInput }
+            />
 
-      <TextInput 
-        placeholder="Sintoma"
-        style={ styles.TextInput }
-      />
+          <TextInput 
+            placeholder="Sintoma"
+            style={ styles.TextInput }
+            />
 
-      <TextInput 
-        placeholder="Descripcion"
-        style={ styles.TextInput }
-      />
+          <TextInput 
+            placeholder="Descripcion"
+            style={ styles.TextInput }
+            />
+        </View>
 
         <View style= { styles.ButtonContainer }>
             <TouchableOpacity 
