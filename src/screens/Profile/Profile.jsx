@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCamaraImage } from '../../features/auth/authSlice';
 import { usePostProfileImageMutation } from '../../services/clinicApi';
+import {Header} from '../../components/'
 
 const Profile = () => {
 
@@ -49,6 +50,8 @@ const Profile = () => {
 
     return (
         <View style={ styles.container } >
+
+        <Header title={'Foto de perfil'} />
 
             {
                 image

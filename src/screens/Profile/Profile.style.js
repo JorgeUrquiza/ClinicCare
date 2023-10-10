@@ -10,9 +10,10 @@ export default StyleSheet.create({
         backgroundColor: colors.primary,
     },
     image: {
-        width: 200,
-        height: 200,
-        borderRadius: 100,
+        width: 250,
+        height: 250,
+        borderRadius: 200,
+        marginVertical: 70
     },
     button: {
         backgroundColor: colors.tertiary,
@@ -21,7 +22,7 @@ export default StyleSheet.create({
         height: 50,
         width: 250,
         borderRadius: 10,
-        marginTop: 50,
+        marginTop: 25,
     },
     buttonText: {
         fontSize: 20,
