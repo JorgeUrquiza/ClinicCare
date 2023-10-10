@@ -6,6 +6,7 @@ import { colors } from "../constants/colors";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import AddNavigator from "./AddNavigator";
+import ProfileNavigator from "./ProfileNavigator"; 
 
 
 const BottomTab = createBottomTabNavigator();
@@ -43,6 +44,16 @@ function BottomTabNavigator() {
                 tabBarIcon: ({focused}) => (
                     <Ionicons
                         name="person-add-outline"
+                        size={30}
+                        color={focused ? 'white' : 'grey' }
+                    />
+                )
+            }} />
+
+            <BottomTab.Screen name="ProfileNavigator" component={ProfileNavigator} options={{
+                tabBarIcon: ({focused}) => (
+                    <Ionicons
+                        name="camera-outline"
                         size={30}
                         color={focused ? 'white' : 'grey' }
                     />
