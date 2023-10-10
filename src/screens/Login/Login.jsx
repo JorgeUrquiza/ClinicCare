@@ -60,12 +60,7 @@ const Login = ({navigation}) => {
                 secureTextEntry={true}
                 style={ styles.inputField}
                 value= { password }
-                onChangeText={ setPassword }
-
-
-                // onChangeText={ (value) => onChange( value, 'password' )}
-                // value={ password }
-                // onSubmitEditing={ onLogin }              
+                onChangeText={ setPassword }              
 
                 autoCapitalize='none'
                 autoCorrect={false}
@@ -77,8 +72,6 @@ const Login = ({navigation}) => {
                 activeOpacity={0.5}
                 style={ styles.button }
                 onPress={ onSubmit }
-                // onPress={ onLogin }              
-
               >
                 <Text style= {styles.buttonText}>Login</Text>
               </TouchableOpacity>

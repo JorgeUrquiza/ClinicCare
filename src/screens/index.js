@@ -5,5 +5,6 @@ import SearchAllPatients from "./SearchAllPatients/SearchAllPatients";
 import AddPatient from "./AddPatient/AddPatient";
 import Login from "./Login/Login";
 import Singup from "./Singup/Singup";
+import Profile from "./Profile/Profile";
 
-export { Home, PatientList, PatientDetails, SearchAllPatients, AddPatient, Login, Singup };
+export { Home, PatientList, PatientDetails, SearchAllPatients, AddPatient, Login, Singup, Profile };

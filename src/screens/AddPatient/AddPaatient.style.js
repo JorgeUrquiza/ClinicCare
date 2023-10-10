@@ -7,17 +7,21 @@ export default styles = StyleSheet.create({
         paddingTop: 70,
         backgroundColor: colors.primary,
     },
+    formContainer: {
+        marginTop: '10%',
+    },
     TextInput: {
         height: 40,
         backgroundColor: 'white',
         borderRadius: 10,
         padding: 10,
         margin: 10,
+        marginVertical: 15,
     },
     ButtonContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 10,
+        marginTop: 20,
     },
     Button: {
         backgroundColor: colors.tertiary,

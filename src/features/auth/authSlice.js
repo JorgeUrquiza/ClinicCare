@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     user: null,
     token: null,
+    localId: null,
+    imageCamara: null,
 };
 
 export const authSlice = createSlice({
@@ -14,6 +16,7 @@ export const authSlice = createSlice({
             return {
                 user: action.payload.data.email,
                 token: action.payload.data.idToken,
+                localId: action.payload.data.localId,
             }
         },
         clearUser: () => {
@@ -22,9 +25,15 @@ export const authSlice = createSlice({
                 token: null,
             }
         },
+        setCamaraImage: (state, action) => {
+            return {
+                ...state,
+                imageCamara: action.payload,
+            }
+        }
     },
 });
 
-export const { setUser, clearUser } = authSlice.actions;
+export const { setUser, clearUser, setCamaraImage } = authSlice.actions;
 
 export default authSlice.reducer;

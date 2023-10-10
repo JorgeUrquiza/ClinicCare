@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/colors";
 
 
 export default StyleSheet.create({
@@ -49,8 +50,8 @@ export default StyleSheet.create({
         position: 'absolute',
         top: 50,
         left: 20,
-        borderWidth: 1,
-        borderColor: 'white',
+        borderWidth: 2,
+        borderColor: colors.tertiary,
         paddingHorizontal: 8,
         paddingVertical: 5,
         borderRadius: 100,

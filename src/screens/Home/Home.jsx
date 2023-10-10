@@ -13,7 +13,7 @@ const Home = ({ navigation }) => {
 
     return (
       <View style={styles.container}>
-        <Header title={'Historia Clinica'} />
+        <Header title={'Especialidades'} />
         
         { !isLoading && (
           <FlatList

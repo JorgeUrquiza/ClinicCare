@@ -24,10 +24,10 @@ const Singup = ({navigation}) => {
     if(result.isSuccess) {
       dispatch(setUser(result))
     }
-    // setName('');
-    // setLastname('');
-    // setEmail('');
-    // setPassword('');
+    setName('');
+    setLastname('');
+    setEmail('');
+    setPassword('');
   }
 
 
@@ -119,7 +119,7 @@ const Singup = ({navigation}) => {
                 <Ionicons 
                 name='chevron-back-outline'
                 size={ 30 }
-                color={ 'white' }
+                color={ colors.tertiary }
                 />
                 
             </TouchableOpacity>
