@@ -6,6 +6,7 @@ import { Logo } from './components/Logo'
 import { useLoginMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../features/auth/authSlice'
+import { insertSession } from '../../db'
 
 const Login = ({navigation}) => {
 
@@ -16,11 +17,18 @@ const Login = ({navigation}) => {
 
 
   const onSubmit = () => {
-    console.log( email, password )
+    // console.log( email, password )
     triggerLogin({ email, password })
-    console.log(result)
+    // console.log(result)
     if(result.isSuccess) {
       dispatch(setUser(result))
+      insertSession({                 // Guardar en la base de datos local la sesion del usuario
+        localId: result.data.localId,
+        email: result.data.email,
+        token: result.data.idToken,
+      })
+        .then(result => console.log(result)) 
+        .catch(error => console.log(error.message))
     }
   }
 
