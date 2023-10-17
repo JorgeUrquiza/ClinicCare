@@ -21,7 +21,7 @@ const Login = ({navigation}) => {
     triggerLogin({ email, password })
     // console.log(result)
     if(result.isSuccess) {
-      dispatch(setUser(result))
+      dispatch(setUser(result.data))
       insertSession({                 // Guardar en la base de datos local la sesion del usuario
         localId: result.data.localId,
         email: result.data.email,

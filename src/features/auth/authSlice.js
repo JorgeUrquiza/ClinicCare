@@ -7,16 +7,17 @@ const initialState = {
     imageCamara: null,
 };
 
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
         setUser: (state, action) => {
-            console.log(action.payload.data.email)
+            // console.log(action.payload.data.email)
             return {
-                user: action.payload.data.email,
-                token: action.payload.data.idToken,
-                localId: action.payload.data.localId,
+                user: action.payload.email, //Sacamos el data.
+                token: action.payload.idToken,
+                localId: action.payload.localId,
             }
         },
         clearUser: () => {
