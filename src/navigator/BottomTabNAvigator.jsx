@@ -52,8 +52,8 @@ function BottomTabNavigator() {
             <BottomTab.Screen name="ProfileNavigator" component={ProfileNavigator} options={{
                 tabBarIcon: ({focused}) => (
                     <Ionicons
-                        name="camera-outline"
-                        size={30}
+                        name="person-circle-sharp"
+                        size={40}
                         color={focused ? 'white' : 'grey' }
                     />
                 )

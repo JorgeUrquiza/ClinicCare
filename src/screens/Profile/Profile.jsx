@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import styles from './Profile.style'
 import * as ImagePicker from 'expo-image-picker';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCamaraImage } from '../../features/auth/authSlice';
+import { clearUser, setCamaraImage } from '../../features/auth/authSlice';
 import { usePostProfileImageMutation } from '../../services/clinicApi';
 import {Header} from '../../components/'
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+import { deleteSession } from '../../db';
 
 
 const Profile = () => {
@@ -16,6 +18,10 @@ const Profile = () => {
     const [ triggerSaveProfileImage, result ] = usePostProfileImageMutation();
     const dispatch = useDispatch();
 
+    const logout = () => {
+        dispatch(clearUser())
+        deleteSession()
+      }
 
     const verifyCamaraPermissions = async () => {
         const {granted} = await ImagePicker.requestCameraPermissionsAsync();
@@ -53,7 +59,11 @@ const Profile = () => {
     return (
         <View style={ styles.container } >
 
-        <Header title={'Foto de perfil'} />
+            <View style={ styles.header }>
+        <Header title={'Usuario'} />
+
+            </View>
+
 
             {
                 image
@@ -73,7 +83,6 @@ const Profile = () => {
                 style={{...styles.button, width: 70}}
                 onPress={pickImage}
             >
-
                 <Ionicons 
                     name='camera-reverse'
                     size={ 30 }
@@ -86,6 +95,13 @@ const Profile = () => {
                 onPress={confirmImage}
             >
                 <Text style={ styles.buttonText } >Confirmar</Text>
+            </Pressable>
+
+            <Pressable
+                style={styles.outSessionButton }
+                onPress={ logout }
+            >
+                <Text style={ styles.buttonText } >Cerrar Sesion</Text>
             </Pressable>
         </View>
     )

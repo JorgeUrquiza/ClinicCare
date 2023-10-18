@@ -9,11 +9,14 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.primary,
     },
+    header: {
+        top: -25,
+    },
     image: {
         width: 250,
         height: 250,
         borderRadius: 200,
-        marginVertical: 70
+        marginVertical: 20
     },
     button: {
         backgroundColor: colors.tertiary,
@@ -22,7 +25,16 @@ export default StyleSheet.create({
         height: 50,
         width: 250,
         borderRadius: 10,
-        marginTop: 25,
+        marginTop: 20,
+    },
+    outSessionButton: {
+        backgroundColor: colors.quaternary,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 50,
+        width: '90%',
+        borderRadius: 10,
+        top: 80,
     },
     buttonText: {
         fontSize: 20,
