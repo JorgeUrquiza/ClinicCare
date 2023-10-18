@@ -13,6 +13,6 @@ export default styles = StyleSheet.create({
         height: 50,
         borderRadius: 10,
         borderWidth: 2,
-        backgroundColor: '#ffffff99'        
+        backgroundColor: '#ffffff99',    
     }
 })

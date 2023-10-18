@@ -11,6 +11,6 @@ export default styles = StyleSheet.create({
     text: {
       fontSize: 18,
       color: 'black',
-      fontWeight: 'bold'
+      fontFamily: 'RobotoBold',
     }
   })
