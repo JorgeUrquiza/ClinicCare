@@ -17,17 +17,27 @@ const Singup = ({navigation}) => {
   const [ triggerSingup, result ] = useSingUpMutation()
   const dispatch = useDispatch()
 
+  // const onSubmit = () => {
+  //   console.log(name, lastname, email, password)
+  //   triggerSingup({ email, password })
+  //   console.log(result)
+  //   if(result.isSuccess) {
+  //     dispatch(setUser(result.data))
+  //   }
+  //   setName('');
+  //   setLastname('');
+  //   setEmail('');
+  //   setPassword('');
+  // }
   const onSubmit = () => {
     console.log(name, lastname, email, password)
     triggerSingup({ email, password })
-    console.log(result)
-    if(result.isSuccess) {
-      dispatch(setUser(result.data))
-    }
-    setName('');
-    setLastname('');
-    setEmail('');
-    setPassword('');
+    .unwrap()
+    .then(result => {
+      console.log(result)
+      dispatch(setUser(result))
+    })
+    .catch(error => console.log(error.message))
   }
 
 

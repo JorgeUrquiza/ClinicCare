@@ -7,29 +7,35 @@ import { useLoginMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../features/auth/authSlice'
 import { insertSession } from '../../db'
+import PrimaryModal from '../../components/Modal/PrimaryModal'
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { colors } from '../../constants/colors'
+
 
 const Login = ({navigation}) => {
 
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ triggerLogin, result ] = useLoginMutation()
+  const [errorModalVisible, setErrorModalVisible] = useState(false)
   const dispatch = useDispatch()
 
 
   const onSubmit = () => {
     // console.log( email, password )
     triggerLogin({ email, password })
-    // console.log(result)
-    if(result.isSuccess) {
-      dispatch(setUser(result.data))
+    .unwrap()
+    .then(result => {
+      dispatch(setUser(result))
       insertSession({                 // Guardar en la base de datos local la sesion del usuario
-        localId: result.data.localId,
-        email: result.data.email,
-        token: result.data.idToken,
+        localId: result.localId,
+        email: result.email,
+        token: result.idToken,
       })
         .then(result => console.log(result)) 
         .catch(error => console.log(error.message))
-    }
+    })
+    .catch(error => { setErrorModalVisible(true) })
   }
 
 
@@ -96,6 +102,17 @@ const Login = ({navigation}) => {
                 <Text style= {styles.buttonText}>Nueva cuenta</Text>
               </TouchableOpacity>
             </View>        
+
+          <PrimaryModal 
+            modalVisible={ errorModalVisible }
+            onHandleClose={ () => setErrorModalVisible(false) }
+            title= {<Ionicons
+            name="alert-circle"
+            size={40}
+            color={ colors.quaternary }
+          />}
+            message='Usuario o contraseña incorrecta'
+          />
 
         </View>
 
