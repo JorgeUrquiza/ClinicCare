@@ -24,6 +24,7 @@ export const authSlice = createSlice({
             return {
                 user: null,
                 token: null,
+                localId: null,
             }
         },
         setCamaraImage: (state, action) => {
