@@ -17,9 +17,8 @@ const Login = ({navigation}) => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ triggerLogin, result ] = useLoginMutation()
-  const dispatch = useDispatch()
-  //probando
   const [errorModalVisible, setErrorModalVisible] = useState(false)
+  const dispatch = useDispatch()
 
 
   const onSubmit = () => {
