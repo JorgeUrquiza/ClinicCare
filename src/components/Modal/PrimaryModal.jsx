@@ -3,7 +3,7 @@ import { Text, View, Modal, TouchableOpacity } from 'react-native';
 import styles from './PrimaryModal.style'
 
 
-const PrimaryModal = ({ modalVisible, onHandleDelete, onHandleClose }) => {
+const PrimaryModal = ({ modalVisible, onHandleDelete, onHandleClose, title, message }) => {
 
   return (
     <Modal
@@ -14,19 +14,19 @@ const PrimaryModal = ({ modalVisible, onHandleDelete, onHandleClose }) => {
     <View style={ styles.modalContainer } >
       <View style={ styles.modalContent }>
         <View  >
-          <Text style={ styles.modalTitle }>Eliminar</Text>  
+          <Text style={ styles.modalTitle }>{title}</Text>  
         </View>  
         <View style={ styles.modalMessage } >
-          <Text>¿Estas seguro que desea eliminar al paciente?</Text>
+          <Text>{message}</Text>
         </View>
 
         <View style={ styles.modalButton } >          
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={ onHandleDelete }
             style={ styles.confirmButton }
           >
             <Text style={ styles.confirmText } >Confirmar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity
             onPress={ onHandleClose }

@@ -7,6 +7,10 @@ import { useLoginMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../features/auth/authSlice'
 import { insertSession } from '../../db'
+import PrimaryModal from '../../components/Modal/PrimaryModal'
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { colors } from '../../constants/colors'
+
 
 const Login = ({navigation}) => {
 
@@ -14,6 +18,8 @@ const Login = ({navigation}) => {
   const [ password, setPassword ] = useState('')
   const [ triggerLogin, result ] = useLoginMutation()
   const dispatch = useDispatch()
+  //probando
+  const [errorModalVisible, setErrorModalVisible] = useState(false)
 
 
   const onSubmit = () => {
@@ -30,7 +36,7 @@ const Login = ({navigation}) => {
         .then(result => console.log(result)) 
         .catch(error => console.log(error.message))
     })
-    .catch(error => console.log('Datos incorrectos',error.message))
+    .catch(error => { setErrorModalVisible(true) })
   }
 
 
@@ -97,6 +103,17 @@ const Login = ({navigation}) => {
                 <Text style= {styles.buttonText}>Nueva cuenta</Text>
               </TouchableOpacity>
             </View>        
+
+          <PrimaryModal 
+            modalVisible={ errorModalVisible }
+            onHandleClose={ () => setErrorModalVisible(false) }
+            title= {<Ionicons
+            name="alert-circle"
+            size={40}
+            color={ colors.quaternary }
+          />}
+            message='Usuario o contraseña incorrecta'
+          />
 
         </View>
 
