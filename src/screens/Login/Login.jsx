@@ -19,17 +19,18 @@ const Login = ({navigation}) => {
   const onSubmit = () => {
     // console.log( email, password )
     triggerLogin({ email, password })
-    // console.log(result)
-    if(result.isSuccess) {
-      dispatch(setUser(result.data))
+    .unwrap()
+    .then(result => {
+      dispatch(setUser(result))
       insertSession({                 // Guardar en la base de datos local la sesion del usuario
-        localId: result.data.localId,
-        email: result.data.email,
-        token: result.data.idToken,
+        localId: result.localId,
+        email: result.email,
+        token: result.idToken,
       })
         .then(result => console.log(result)) 
         .catch(error => console.log(error.message))
-    }
+    })
+    .catch(error => console.log('Datos incorrectos',error.message))
   }
 
 
