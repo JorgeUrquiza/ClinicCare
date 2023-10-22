@@ -28,5 +28,10 @@ export default styles = StyleSheet.create({
       },
       icon: {
         paddingRight: 10,
+      },
+      loading: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
       }
 })
