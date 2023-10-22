@@ -10,6 +10,6 @@ export default styles = StyleSheet.create({
     text: {
       fontSize: 20,
       color: 'black',
-      fontFamily: 'PlayfairBold',
+      fontFamily: 'RobotoBold',
     }
   })

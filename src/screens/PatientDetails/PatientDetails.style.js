@@ -32,7 +32,7 @@ export default styles = StyleSheet.create({
         borderWidth: 2,
     },
     subTitle: {
-        fontFamily: 'PlayfairBold',
+        fontFamily: 'RobotoBold',
         fontSize: 22
     },
     description: {
