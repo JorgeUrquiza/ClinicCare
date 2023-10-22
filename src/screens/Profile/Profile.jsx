@@ -80,7 +80,7 @@ const Profile = () => {
             }
 
             <Pressable
-                style={{...styles.button, width: 70}}
+                style={{...styles.button, width: 70, height: 50}}
                 onPress={pickImage}
             >
                 <Ionicons 
