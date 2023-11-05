@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, TextInput, View, Text } from 'react-native';
-import { Header } from '../../components';
+import { Header, PrimaryModal } from '../../components';
 import styles from './AddPaatient.style';
 import { useAddPatientMutation } from '../../services/clinicApi';
+
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 
 const AddPatient = () => {
 
-  const [addPatient] = useAddPatientMutation()
+  const [addPatient, result] = useAddPatientMutation()
+
+  const [modalVisible, setModalVisible] = useState(false)
 
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -15,27 +20,28 @@ const AddPatient = () => {
   const [sintoma, setSintoma] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleAddPatient = async () => {
-    try {   
-      const newPatient = {
-        name,
-        age,
-        category,
-        sintoma,
-        description,
-        id: Math.floor(Math.random() * 1000),
-      };
-      await addPatient(newPatient);
-      setName('');
-      setAge('');
-      setCategory('');
-      setSintoma('');
-      setDescription('');  
+  const handleAddPatient = () => {
+    const newPatient = {
+      name,
+      age,
+      category,
+      sintoma,
+      description,
+      id: Math.floor(Math.random() * 1000),
+    };
 
-    } catch (error) {
-        console.error('Error al agregar paciente', error);
-    }
-};
+    addPatient(newPatient)
+      .then(result => {
+        console.log(result)
+        setModalVisible(true)
+        setName('');
+        setAge('');
+        setCategory('');
+        setSintoma('');
+        setDescription('');  
+      })
+      .catch(error => console.log(error))
+  }
 
 
 
@@ -48,32 +54,32 @@ const AddPatient = () => {
           <TextInput 
             placeholder="Nombre del Paciente"
             style={ styles.TextInput }
-            onChangeText={ (text) => setName(text) }
+            onChangeText={ setName }
             />
 
           <TextInput 
             placeholder="Edad"
             style={ styles.TextInput }
             keyboardType='numeric'
-            onChangeText={ (text) => setAge(text) } 
+            onChangeText={ setAge }
             />
 
           <TextInput 
             placeholder="Categoria"
             style={ styles.TextInput }
-            onChangeText={ (text) => setCategory(text) } 
+            onChangeText={ setCategory } 
             />
 
           <TextInput 
             placeholder="Sintoma"
             style={ styles.TextInput }
-            onChangeText={ (text) => setSintoma(text) } 
+            onChangeText={ setSintoma } 
             />
 
           <TextInput 
             placeholder="Descripcion"
             style={ styles.TextInput }
-            onChangeText={ (text) => setDescription(text) } 
+            onChangeText={ setDescription } 
             />
         </View>
 
@@ -84,7 +90,18 @@ const AddPatient = () => {
                 >
                 <Text style={ styles.ButtonText } >Agregar</Text>
             </TouchableOpacity>
-        </View>  
+        </View>
+        
+        <PrimaryModal 
+            modalVisible={ modalVisible }
+            onHandleClose={ () => setModalVisible(false) }
+            title= {<Ionicons
+            name="checkmark-circle"
+            size={40}
+            color= 'green'
+          />}
+            message='Paciente agregado correctamente'
+          />  
 
     </View>
   )
