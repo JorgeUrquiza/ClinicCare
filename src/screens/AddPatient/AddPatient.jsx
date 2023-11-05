@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Header, PrimaryModal } from '../../components';
 import styles from './AddPaatient.style';
 import { useAddPatientMutation } from '../../services/clinicApi';
@@ -21,7 +21,6 @@ const AddPatient = () => {
   const [sintoma, setSintoma] = useState('');
   const [description, setDescription] = useState('');
 
-  const [selected, setSelected] = useState(''); //Probando el select
 
   const data = [
     {value:'Clinico'},
@@ -58,71 +57,74 @@ const AddPatient = () => {
       .catch(error => console.log(error))
   }
 
-
-
-  //fin de prueba
   return (
-    <View style={ styles.container }>
-      <Header title={'Agregar Paciente'} />
+    <KeyboardAvoidingView     //para que el teclado no tape el input
+      style={styles.container}
+      behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
+    >
+      <ScrollView>        
+        <View style={{ paddingTop: 40, }}>
+          <Header title={'Agregar Paciente'} />
 
-      <View style={ styles.formContainer }>
-          <TextInput 
-            placeholder="Nombre del Paciente"
-            style={ styles.TextInput }
-            onChangeText={ setName }
-            />
+          <View style={ styles.formContainer }>
+              <TextInput 
+                placeholder="Nombre del Paciente"
+                style={ styles.TextInput }
+                onChangeText={ setName }
+                />
 
-          <TextInput 
-            placeholder="Edad"
-            style={ styles.TextInput }
-            keyboardType='numeric'
-            onChangeText={ setAge }
-            />
+              <TextInput 
+                placeholder="Edad"
+                style={ styles.TextInput }
+                keyboardType='numeric'
+                onChangeText={ setAge }
+                />
 
-          <SelectList 
-            setSelected={(val) => setCategory(val)} 
-            data={data} 
-            save="value"
-            styles={styles.TextInput}
-            boxStyles={{...styles.TextInput, height: 46, paddingLeft: 10 }}
-            dropdownStyles= {{backgroundColor: 'white', marginHorizontal: 10 }}
-            placeholder="Categoria"
-          />
+              <SelectList 
+                setSelected={(val) => setCategory(val)} 
+                data={data} 
+                save="value"
+                styles={styles.TextInput}
+                boxStyles={{...styles.TextInput, height: 46, paddingLeft: 10 }}
+                dropdownStyles= {{backgroundColor: 'white', marginHorizontal: 10 }}
+                placeholder="Categoria"
+              />
 
-          <TextInput 
-            placeholder="Sintoma"
-            style={ styles.TextInput }
-            onChangeText={ setSintoma } 
-            />
+              <TextInput 
+                placeholder="Sintoma"
+                style={ styles.TextInput }
+                onChangeText={ setSintoma } 
+                />
 
-          <TextInput 
-            placeholder="Descripcion"
-            style={ styles.TextInput }
-            onChangeText={ setDescription } 
-            />
+              <TextInput 
+                placeholder="Descripcion"
+                style={ styles.TextInput }
+                onChangeText={ setDescription } 
+                />
+            </View>
+
+            <View style= { styles.ButtonContainer }>
+                <TouchableOpacity 
+                    style={ styles.Button }  
+                    onPress={handleAddPatient}
+                    >
+                    <Text style={ styles.ButtonText } >Agregar</Text>
+                </TouchableOpacity>
+            </View>
+            
+            <PrimaryModal 
+                modalVisible={ modalVisible }
+                onHandleClose={ () => setModalVisible(false) }
+                title= {<Ionicons
+                name="checkmark-circle"
+                size={40}
+                color= 'green'
+              />}
+                message='Paciente agregado correctamente'
+              />  
         </View>
-
-        <View style= { styles.ButtonContainer }>
-            <TouchableOpacity 
-                style={ styles.Button }  
-                onPress={handleAddPatient}
-                >
-                <Text style={ styles.ButtonText } >Agregar</Text>
-            </TouchableOpacity>
-        </View>
-        
-        <PrimaryModal 
-            modalVisible={ modalVisible }
-            onHandleClose={ () => setModalVisible(false) }
-            title= {<Ionicons
-            name="checkmark-circle"
-            size={40}
-            color= 'green'
-          />}
-            message='Paciente agregado correctamente'
-          />  
-
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   )
 }
 

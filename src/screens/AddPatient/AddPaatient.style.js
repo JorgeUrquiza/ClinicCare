@@ -4,11 +4,11 @@ import { colors } from '../../constants/colors';
 export default styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 70,
+        paddingTop: 40,
         backgroundColor: colors.primary,
     },
     formContainer: {
-        marginTop: '10%',
+        marginTop: '5%',
     },
     TextInput: {
         height: 40,
