@@ -40,5 +40,5 @@ export const {
     useGetPatientsByCategoryQuery,
     useGetProfileImageQuery,
     usePostProfileImageMutation,
-    useAddPatientMutation
+    useAddPatientMutation,
 } = clinicApi;

@@ -19,10 +19,10 @@ const PatientList = ({ navigation }) => {
      if (data) {
         const dataArray = Object.values(data);
         const patientsFiltered = dataArray.filter(
-          (patient) => patient.name.includes(keyWord)
+          (patient) => patient && patient.name.includes(keyWord)
         );
         setArrPatients(patientsFiltered);
-        setLoading(false); //Probando
+        setLoading(false); 
      }
    }, [ data, keyWord ])
    
