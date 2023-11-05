@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { TouchableOpacity, TextInput, View, Text } from 'react-native';
 import { Header } from '../../components';
 import styles from './AddPaatient.style';
- // Probando
 import { useAddPatientMutation } from '../../services/clinicApi';
 
 
@@ -10,25 +9,29 @@ const AddPatient = () => {
 
   const [addPatient] = useAddPatientMutation()
 
-  //Probando
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [category, setCategory] = useState('');
   const [sintoma, setSintoma] = useState('');
   const [description, setDescription] = useState('');
 
-
   const handleAddPatient = async () => {
-    try {
+    try {   
       const newPatient = {
         name,
-        age: parseInt(age),
+        age,
         category,
         sintoma,
         description,
+        id: Math.floor(Math.random() * 1000),
       };
       await addPatient(newPatient);
-      console.log('Paciente agregado correctamente');
+      setName('');
+      setAge('');
+      setCategory('');
+      setSintoma('');
+      setDescription('');  
+
     } catch (error) {
         console.error('Error al agregar paciente', error);
     }
@@ -45,32 +48,32 @@ const AddPatient = () => {
           <TextInput 
             placeholder="Nombre del Paciente"
             style={ styles.TextInput }
-            onChangeText={ (text) => setName(text) } // Probando
+            onChangeText={ (text) => setName(text) }
             />
 
           <TextInput 
             placeholder="Edad"
             style={ styles.TextInput }
             keyboardType='numeric'
-            onChangeText={ (text) => setAge(text) } // Probando
+            onChangeText={ (text) => setAge(text) } 
             />
 
           <TextInput 
             placeholder="Categoria"
             style={ styles.TextInput }
-            onChangeText={ (text) => setCategory(text) } // Probando
+            onChangeText={ (text) => setCategory(text) } 
             />
 
           <TextInput 
             placeholder="Sintoma"
             style={ styles.TextInput }
-            onChangeText={ (text) => setSintoma(text) } // Probando
+            onChangeText={ (text) => setSintoma(text) } 
             />
 
           <TextInput 
             placeholder="Descripcion"
             style={ styles.TextInput }
-            onChangeText={ (text) => setDescription(text) } // Probando
+            onChangeText={ (text) => setDescription(text) } 
             />
         </View>
 

@@ -25,7 +25,7 @@ export const clinicApi = createApi({
             }),
         }),
         addPatient: builder.mutation({ // Agregar pacientes nuevo metodo
-            query: newPatient => ({
+            query: (newPatient) => ({
                 url: 'patients.json',
                 method: 'POST',
                 body: newPatient,
