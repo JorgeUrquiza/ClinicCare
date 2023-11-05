@@ -3,10 +3,8 @@ import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, Platform
 import { Header, PrimaryModal } from '../../components';
 import styles from './AddPaatient.style';
 import { useAddPatientMutation } from '../../services/clinicApi';
-
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { SelectList } from 'react-native-dropdown-select-list'
-
 
 
 const AddPatient = () => {
@@ -21,7 +19,6 @@ const AddPatient = () => {
   const [sintoma, setSintoma] = useState('');
   const [description, setDescription] = useState('');
 
-
   const data = [
     {value:'Clinico'},
     {value:'Traumatología'},
@@ -31,7 +28,6 @@ const AddPatient = () => {
     {value:'Dermatología'},
     {value:'Psicología'},
     {value:'Urología'},
-
 ]
 
   const handleAddPatient = () => {
@@ -70,6 +66,7 @@ const AddPatient = () => {
               <TextInput 
                 placeholder="Nombre del Paciente"
                 style={ styles.TextInput }
+                value={ name }
                 onChangeText={ setName }
                 />
 
@@ -77,6 +74,7 @@ const AddPatient = () => {
                 placeholder="Edad"
                 style={ styles.TextInput }
                 keyboardType='numeric'
+                value={ age }
                 onChangeText={ setAge }
                 />
 
@@ -93,12 +91,14 @@ const AddPatient = () => {
               <TextInput 
                 placeholder="Sintoma"
                 style={ styles.TextInput }
+                value={ sintoma }
                 onChangeText={ setSintoma } 
                 />
 
               <TextInput 
                 placeholder="Descripcion"
                 style={ styles.TextInput }
+                value={ description }
                 onChangeText={ setDescription } 
                 />
             </View>
@@ -120,10 +120,11 @@ const AddPatient = () => {
                 size={40}
                 color= 'green'
               />}
-                message='Paciente agregado correctamente'
+                message='Paciente agregado correctamente' 
               />  
-        </View>
-      </ScrollView>
+        </View> 
+      </ScrollView> 
+      <View style={{ height: 50 }} /> 
     </KeyboardAvoidingView>
   )
 }
