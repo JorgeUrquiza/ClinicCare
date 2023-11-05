@@ -58,7 +58,7 @@ const AddPatient = () => {
       style={styles.container}
       behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
     >
-      <ScrollView>        
+      <ScrollView >        
         <View style={{ paddingTop: 40, }}>
           <Header title={'Agregar Paciente'} />
 
