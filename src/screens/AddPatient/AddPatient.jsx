@@ -5,6 +5,7 @@ import styles from './AddPaatient.style';
 import { useAddPatientMutation } from '../../services/clinicApi';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { SelectList } from 'react-native-dropdown-select-list'
 
 
 
@@ -19,6 +20,20 @@ const AddPatient = () => {
   const [category, setCategory] = useState('');
   const [sintoma, setSintoma] = useState('');
   const [description, setDescription] = useState('');
+
+  const [selected, setSelected] = useState(''); //Probando el select
+
+  const data = [
+    {value:'Clinico'},
+    {value:'Traumatología'},
+    {value:'Pediatría'},
+    {value:'Cardiología'},
+    {value:'Oftalmología'},
+    {value:'Dermatología'},
+    {value:'Psicología'},
+    {value:'Urología'},
+
+]
 
   const handleAddPatient = () => {
     const newPatient = {
@@ -64,11 +79,15 @@ const AddPatient = () => {
             onChangeText={ setAge }
             />
 
-          <TextInput 
+          <SelectList 
+            setSelected={(val) => setCategory(val)} 
+            data={data} 
+            save="value"
+            styles={styles.TextInput}
+            boxStyles={{...styles.TextInput, height: 46, paddingLeft: 10 }}
+            dropdownStyles= {{backgroundColor: 'white', marginHorizontal: 10 }}
             placeholder="Categoria"
-            style={ styles.TextInput }
-            onChangeText={ setCategory } 
-            />
+          />
 
           <TextInput 
             placeholder="Sintoma"
