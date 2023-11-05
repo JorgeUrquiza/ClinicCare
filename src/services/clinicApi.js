@@ -23,6 +23,13 @@ export const clinicApi = createApi({
                 method: 'PUT',
                 body: {image},
             }),
+        }),
+        addPatient: builder.mutation({ // Agregar pacientes nuevo metodo
+            query: newPatient => ({
+                url: 'patients.json',
+                method: 'POST',
+                body: newPatient,
+            })
         })
     }),
 });
@@ -33,4 +40,5 @@ export const {
     useGetPatientsByCategoryQuery,
     useGetProfileImageQuery,
     usePostProfileImageMutation,
+    useAddPatientMutation
 } = clinicApi;
